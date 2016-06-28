@@ -24,6 +24,22 @@ BEGIN {
 	}
 }
 
+function calcRowSum(row) {
+	sum = 0;
+	for (i = 0; i < cols; i++) {
+		sum += square[row, i];
+	}
+	return sum;
+}
+
+function calcColSum(col) {
+	sum = 0;
+	for (i = 0; i < rows; i++) {
+		sum += square[i, col];
+	}
+	return sum;
+}
+
 END {
 	for (r = 0; r < rows; r++) {
 		for (c = 0; c < cols; c++) {
