@@ -15,10 +15,10 @@ BEGIN {
 			colSums[i - 2] = $i + 0;
 		}
 	} else {
-		rowSums[rows] = $0;
+		rowSums[rows] = $0 + 0;
 		for (i = 2; i <= NF; i++) {
 			col = i - 2;
-			square[rows, col] = $i;
+			square[rows, col] = $i + 0;
 		}
 		rows++;
 	}
