@@ -24,18 +24,18 @@ BEGIN {
 	}
 }
 
-function calcRowSum(row) {
+function calcRowSum(sq, row) {
 	sum = 0;
 	for (i = 0; i < cols; i++) {
-		sum += square[row, i];
+		sum += sq[row, i];
 	}
 	return sum;
 }
 
-function calcColSum(col) {
+function calcColSum(sq, col) {
 	sum = 0;
 	for (i = 0; i < rows; i++) {
-		sum += square[i, col];
+		sum += sq[i, col];
 	}
 	return sum;
 }
