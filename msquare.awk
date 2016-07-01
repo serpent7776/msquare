@@ -40,6 +40,20 @@ function calcColSum(sq, col) {
 	return sum;
 }
 
+function checkSquare(sq) {
+	for (r = 0; r < rows; r++) {
+		if (calcRowSum(sq, r) != rowSums[r]) {
+			return 0;
+		}
+	}
+	for (c = 0; c < cols; c++) {
+		if (calcColSum(sq, c) != colSums[c]) {
+			return 0;
+		}
+	}
+	return 1;
+}
+
 END {
 	for (r = 0; r < rows; r++) {
 		for (c = 0; c < cols; c++) {
