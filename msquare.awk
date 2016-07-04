@@ -54,7 +54,15 @@ function checkSquare(sq) {
 	return 1;
 }
 
-END {
+function createMask() {
+	n = rows * cols;
+	maxSteps = 2 ^ n;
+	for (i = 0; i < n; i++) {
+		mask[i] = 0;
+	}
+	step = 0;
+}
+
 	for (r = 0; r < rows; r++) {
 		for (c = 0; c < cols; c++) {
 			print square[r, c];
