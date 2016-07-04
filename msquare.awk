@@ -6,7 +6,7 @@ BEGIN {
 
 {
 	if (cols == 0) {
-		cols = NF;
+		cols = NF - 1;
 		# if ($1 != "#") {
 			# print "die";
 			# exit;
