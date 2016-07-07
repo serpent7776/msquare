@@ -63,6 +63,17 @@ function createMask() {
 	step = 0;
 }
 
+function nextStep() {
+	i = 0;
+	mask[i]++;
+	while (mask[i] > 1) {
+		mask[i] = 0;
+		i++;
+		mask[i]++;
+	}
+	step++;
+}
+
 	for (r = 0; r < rows; r++) {
 		for (c = 0; c < cols; c++) {
 			print square[r, c];
