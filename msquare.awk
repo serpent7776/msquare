@@ -74,9 +74,16 @@ function nextStep() {
 	step++;
 }
 
+function prepareSquare() {
 	for (r = 0; r < rows; r++) {
 		for (c = 0; c < cols; c++) {
-			print square[r, c];
+			i = r * cols + c;
+			if (mask[i] == 1) {
+				sq[r, c] = square[r, c];
+			} else {
+				sq[r, c] = 0;
+			}
 		}
 	}
 }
+
