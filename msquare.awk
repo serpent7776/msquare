@@ -87,3 +87,18 @@ function prepareSquare() {
 	}
 }
 
+function bruteforce() {
+	createMask();
+	done = 0;
+	while (step < maxSteps && !done) {
+		nextStep();
+		prepareSquare();
+		done = checkSquare(sq);
+	}
+	return done;
+}
+
+END {
+	done = bruteforce();
+	print done ? "done" : "invalid";
+}
