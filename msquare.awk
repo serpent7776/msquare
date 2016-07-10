@@ -87,6 +87,21 @@ function prepareSquare() {
 	}
 }
 
+function printResult(s) {
+	printf "#"
+	for (c = 0; c < cols; c++) {
+		printf " %d", colSums[c];
+	}
+	print "";
+	for (r = 0; r < rows; r++) {
+		printf "%d ", rowSums[r];
+		for (c = 0; c < cols; c++) {
+			printf "%d ", s[r, c];
+		}
+		print "";
+	}
+}
+
 function bruteforce() {
 	createMask();
 	done = 0;
@@ -100,5 +115,6 @@ function bruteforce() {
 
 END {
 	done = bruteforce();
+	printResult(sq);
 	print done ? "done" : "invalid";
 }
