@@ -24,7 +24,7 @@ BEGIN {
 	}
 }
 
-function calcRowSum(sq, row) {
+function calcRowSum(sq, row,  i, sum) {
 	sum = 0;
 	for (i = 0; i < cols; i++) {
 		sum += sq[row, i];
@@ -32,7 +32,7 @@ function calcRowSum(sq, row) {
 	return sum;
 }
 
-function calcColSum(sq, col) {
+function calcColSum(sq, col,  i, sum) {
 	sum = 0;
 	for (i = 0; i < rows; i++) {
 		sum += sq[i, col];
@@ -40,7 +40,7 @@ function calcColSum(sq, col) {
 	return sum;
 }
 
-function checkSquare(sq) {
+function checkSquare(sq,  r, c) {
 	for (r = 0; r < rows; r++) {
 		if (calcRowSum(sq, r) != rowSums[r]) {
 			return 0;
@@ -54,7 +54,7 @@ function checkSquare(sq) {
 	return 1;
 }
 
-function createMask() {
+function createMask(  n, i) {
 	n = rows * cols;
 	maxSteps = 2 ^ n;
 	for (i = 0; i < n; i++) {
@@ -63,7 +63,7 @@ function createMask() {
 	step = 0;
 }
 
-function nextStep() {
+function nextStep(  i) {
 	i = 0;
 	mask[i]++;
 	while (mask[i] > 1) {
@@ -74,7 +74,7 @@ function nextStep() {
 	step++;
 }
 
-function prepareSquare() {
+function prepareSquare(  r, c, i) {
 	for (r = 0; r < rows; r++) {
 		for (c = 0; c < cols; c++) {
 			i = r * cols + c;
@@ -102,7 +102,7 @@ function printResult(s) {
 	}
 }
 
-function bruteforce() {
+function bruteforce(  done) {
 	createMask();
 	done = 0;
 	while (step < maxSteps && !done) {
